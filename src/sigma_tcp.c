@@ -73,7 +73,7 @@ static int show_addrs(int sck)
 			continue;
 
 		addr_to_str(addr, ip, INET6_ADDRSTRLEN);
-		printf("%s: %s\n", &ifr[i].ifr_name, ip);
+		printf("%s: %s\n", (char *)&ifr[i].ifr_name, ip);
 	}
 
 	return 0;
@@ -212,9 +212,11 @@ int main(int argc, char *argv[])
 			backend_ops = &i2c_backend_ops;
 		else if (strcmp(argv[1], "regmap") == 0)
 			backend_ops = &regmap_backend_ops;
+		else if (strcmp(argv[1], "spi") == 0)
+			backend_ops = &spi_backend_ops;
 		else {
 			printf("Usage: %s <backend> <backend arg0> ...\n"
-				   "Available backends: debug, i2c, regmap\n", argv[0]);
+				   "Available backends: debug, i2c, regmap, spi\n", argv[0]);
 			exit(0);
 		}
 

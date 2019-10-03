@@ -20,5 +20,6 @@ struct backend_ops {
 
 extern const struct backend_ops i2c_backend_ops;
 extern const struct backend_ops regmap_backend_ops;
+extern const struct backend_ops spi_backend_ops;
 
 #endif
