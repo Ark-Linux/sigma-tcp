@@ -11,6 +11,8 @@
 #include <stdio.h>
 #include <error.h>
 #include <string.h>
+#include <stdlib.h>
+#include <sys/ioctl.h>
 
 #include <linux/i2c.h>
 #include <linux/i2c-dev.h>
